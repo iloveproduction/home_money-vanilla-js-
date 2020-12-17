@@ -130,5 +130,47 @@
     font-weight: 700;
 }
 
+.transactions{
+    background-color: #fff;
+    width: 30%;
+    height: 155px;
+    border-radius: 15px;
+    padding-top: 15px;
+    overflow-y: scroll;
+}
+
+.transactions-item{
+    margin: 0 auto;
+    background-color:burlywood;
+    width: 90%;
+    height: 40px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.transactions-item__logo{
+    float: left;
+    margin-top: 5px;
+    margin-right:10px;
+    margin-left: 5px;
+}
+
+.transactions-item__title{
+    margin-top: 10px;
+    float: left;
+    width: 65%;
+}
+
+
+.transactions-item__price{
+    margin-top: 10px;
+    /* margin-left: 95px; */
+    float: left;
+    font-weight: 500;
+}
+
+
 
 
