@@ -79,7 +79,7 @@
     margin-top: 70px;
 }
 
-.items li{
+.menu-item{
     margin-bottom: 20px;
 }
 
@@ -92,7 +92,7 @@
 .account-board{
     width: 100%;
     /* background: #fff; */
-    height: 200px;
+    height: 140px;
     margin: 10px auto;
     border-radius: 40px;
 }
@@ -133,7 +133,7 @@
 .transactions{
     background-color: #fff;
     width: 30%;
-    height: 155px;
+    height: 205px;
     border-radius: 15px;
     padding-top: 15px;
     overflow-y: scroll;
@@ -141,13 +141,14 @@
 
 .transactions-item{
     margin: 0 auto;
-    background-color:burlywood;
+    /* background-color:burlywood; */
     width: 90%;
     height: 40px;
     margin-bottom: 5px;
     border-radius: 5px;
     list-style-type: none;
     overflow: hidden;
+    border:1px solid rgba(209, 206, 206, 0.514);
 }
 
 .transactions-item__logo{
@@ -169,6 +170,7 @@
     /* margin-left: 95px; */
     float: left;
     font-weight: 500;
+    color: rgb(167, 3, 3);
 }
 
 
