@@ -38,7 +38,7 @@
 
 .main{
     width: 1200px;
-    margin: 100px auto;
+    margin: 175px auto;
     background: #f0f2f7;
     border-radius: 30px;
 }
@@ -46,7 +46,7 @@
 .main__leftTable{
     float: left;
     width: 13%;
-    height:500px;
+    height:535px;
     /* background: beige; */
     position: relative;
 }
@@ -88,7 +88,7 @@
 .nav{
     background-color: #fff;
     width: 80px;
-    height:430px;
+    height:465px;
     margin:35px auto;
     border-radius: 15px;
     overflow: auto;
@@ -220,10 +220,10 @@
 .transactions__list{
     background-color: #fff;
     /* width: 30%; */
-    height: 200px;
+    height: 235px;
     border-radius: 15px;
     padding-top: 5px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .transactions-item{
@@ -231,11 +231,11 @@
     /* background-color:burlywood; */
     width: 90%;
     height: 40px;
-    margin-bottom: 5px;
+    margin-top: 5px;
     border-radius: 5px;
     list-style-type: none;
     overflow: hidden;
-    border:1px solid rgba(209, 206, 206, 0.514);
+    /* border:1px solid rgba(209, 206, 206, 0.514); */
 }
 
 .transactions-item__logo{
@@ -247,8 +247,19 @@
 
 .transactions-item__title{
     margin-top: 10px;
-    float: left;
     width: 65%;
+    float: left;
+}
+
+.item__name{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.item__date{
+    font-size: 10px;
+    font-weight: 500;
+    color: rgb(165, 164, 164);
 }
 
 
