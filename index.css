@@ -130,21 +130,22 @@
 }
 
 .account-board__total{
-    width: 20%;
+    width: 30%;
     height: 100%;
     float: left;
 }
 
 .account-board__cards{
-    width: 80%;
+    width: 67%;
     /* background-color: aqua; */
     height: 100%;
+    margin-left: 30px;
     float: left;
 }
 
 .credit-card{
     float: left;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     width: 150px;
     height: 100px;
     margin-right: 15px;
@@ -175,16 +176,20 @@
     font-size: 15px;
 }
 
-.credit-card__rocketbank{
+.credit-card_rocketbank{
     background-color: rgb(252, 100, 27);
 }
 
-.credit-card__alfabank{
+.credit-card_alfabank{
     background-color: rgb(221, 30, 38);
 }
 
-.credit-card__tinkoff{
+.credit-card_tinkoff{
     background-color: rgb(255, 223, 0);
+}
+.credit-card_vtb{
+    background-color: rgb(1, 74, 142);
+    color: #fff;
 }
 
 .balance{
@@ -207,6 +212,7 @@
 
 .transactions{
     width: 30%;
+    float: left;
 }
 
 .transactions__header{
@@ -270,6 +276,28 @@
     font-weight: 500;
     color: rgb(167, 3, 3);
 }
+
+.analitics{
+    width: 30%;
+    float: left;
+    margin-left: 35px;
+}
+
+.analitics__header{
+    color:grey;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight:600;
+    padding-left: 15px;
+}
+
+.analitics__body{
+    background-color: #fff;
+    height: 235px;
+    border-radius: 15px;
+    padding-top: 5px;
+}
+
 
 
 
