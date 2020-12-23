@@ -253,8 +253,9 @@
 
 .transactions-item__title{
     margin-top: 10px;
-    width: 65%;
+    width: 45%;
     float: left;
+    overflow: hidden;
 }
 
 .item__name{
@@ -274,7 +275,15 @@
     margin-left: 60px;
     float: left;
     font-weight: 500;
+    /* color: rgb(167, 3, 3); */
+}
+
+.minus{
     color: rgb(167, 3, 3);
+}
+
+.plus{
+    color:rgb(0, 182, 45)
 }
 
 .analitics{
@@ -310,6 +319,15 @@
     margin-left: 10px;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.transactions__list2{
+    background-color: #fff;
+    /* width: 30%; */
+    height: 408px;
+    border-radius: 15px;
+    padding-top: 5px;
+    overflow-y: scroll;
 }
 
 
