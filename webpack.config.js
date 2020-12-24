@@ -13,10 +13,11 @@ module.exports = function(isProd) {
     module:{
         rules:[
           {
-              test:/\.css$/,
+              test:/\.sass$/,
               use:[
                 MiniCssExtractPlugin.loader,
                 'css-loader',
+                "sass-loader"
               ],
           },
           {
@@ -28,7 +29,7 @@ module.exports = function(isProd) {
     plugins:[
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        template:'./src/index.html'
+        template:'./src/index.html',
       }
       ),
       new MiniCssExtractPlugin(),
