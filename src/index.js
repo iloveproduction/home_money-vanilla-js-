@@ -1,4 +1,4 @@
-import './index.css';
+import './index.sass';
 
 const transactions = JSON.parse(localStorage.getItem("Transactions"));
 const app = document.querySelector('.transactions__list')
