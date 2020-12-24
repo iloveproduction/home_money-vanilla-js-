@@ -1,3 +1,5 @@
+import './index.css';
+
 const transactions = JSON.parse(localStorage.getItem("Transactions"));
 const app = document.querySelector('.transactions__list')
 const btn = document.querySelector('.add')
@@ -68,7 +70,7 @@ function createItem(i){
 
     let brand='shopping-basket-2'
 
-    for(br in brandArr){
+    for(let br in brandArr){
         if (br == transactions[i].title.toLowerCase()){
             brand = brandArr[br];
         }
