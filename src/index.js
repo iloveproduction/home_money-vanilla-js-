@@ -6,8 +6,17 @@ const btn = document.querySelector('.add')
 const newItem = document.querySelector('.new-item')
 const newPrice = document.querySelector('.price')
 // const clearBtn = document.querySelector('.clear')
-const money = document.querySelector('.money')
+const money = document.querySelector('.balance__money')
 money.innerText = `${totalMoney()}$`
+
+const plusBtn = document.querySelector('.transactions-buttons__plus')
+const total = document.querySelector('.account-board__total')
+const transAdd = document.querySelector('.account-board__add-item')
+
+plusBtn.onclick = ()=>{
+    total.classList.toggle('hidden')
+    transAdd.classList.toggle('hidden')
+}
 
 const brandArr = {
     spotify:'spotify',

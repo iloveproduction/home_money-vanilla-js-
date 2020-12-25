@@ -35,7 +35,6 @@ module.exports = function(isProd) {
       new MiniCssExtractPlugin(),
     ],
     devServer:{
-      contentBase:'./dist',
       port:9000
     },
     devtool:isProd?false:'source-map',
