@@ -6,8 +6,17 @@ const btn = document.querySelector('.add')
 const newItem = document.querySelector('.new-item')
 const newPrice = document.querySelector('.price')
 // const clearBtn = document.querySelector('.clear')
-const money = document.querySelector('.money')
+const money = document.querySelector('.balance__money')
 money.innerText = `${totalMoney()}$`
+
+const plusBtn = document.querySelector('.transactions-buttons__plus')
+const total = document.querySelector('.account-board__total')
+const transAdd = document.querySelector('.account-board__add-item')
+
+plusBtn.onclick = ()=>{
+    total.classList.toggle('hidden')
+    transAdd.classList.toggle('hidden')
+}
 
 const brandArr = {
     spotify:'spotify',
@@ -75,6 +84,8 @@ function createItem(i){
             brand = brandArr[br];
         }
     }
+
+    let date = transactions[i].date
     
     item.innerHTML = 
         `
@@ -86,7 +97,7 @@ function createItem(i){
                 ${transactions[i].title.toUpperCase()}
             </div>
             <div class="item__date">
-                        21.12.2020
+                        ${date.day}.${date.month}.${date.year}
             </div>
         </div> 
         <div class='transactions-item__price  ${color}'>
@@ -110,8 +121,16 @@ function totalMoney(){
 
 function additem(){
         let transaction = {}
+        let transDate = {}
+
+        let date = new Date()
+        transDate.month = date.getMonth()
+        transDate.day = date.getDate()
+        transDate.year = date.getFullYear()
+
         transaction.title = newItem.value
         transaction.price = newPrice.value
+        transaction.date = transDate
         transactions.push(transaction)
         localStorage.setItem("Transactions", JSON.stringify(transactions));
         newItem.value=''

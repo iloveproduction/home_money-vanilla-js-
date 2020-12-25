@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 
-    <!-- <link rel="stylesheet" href="index.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
       rel="stylesheet">
 </head>
@@ -33,11 +32,11 @@
                             <img src="https://img.icons8.com/fluent/30/000000/bank-cards.png"/>
                         </a>
                     </div>
-                    <!-- <div class="menu-item">
+                    <div class="menu-item">
                         <a href="#">
                             <img src="https://img.icons8.com/fluent/30/000000/settings.png"/>
                         </a>
-                    </div> -->
+                    </div>
                     <div class="exit">
                         <img src="https://img.icons8.com/fluent/30/000000/exit.png"/>
                     </div>
@@ -54,17 +53,35 @@
             <div class="account-board">
                 <div class="account-board__total">
                     <div class="balance">
-                        <p>Total balance</p>
-                        <div class="money">
-                        $10000
+                        <div class="balance__header">Total balance</div>
+                        <div class="balance__money">
+                        ****
                         </div>
                     </div>
+                    <div class="transactions-buttons">
+                        <div class="transactions-buttons__plus">
+                            <img src="https://img.icons8.com/fluent/30/000000/add-dollar.png"/>
+                        </div>
+                        <div class="transactions-buttons__transfer">
+                            <img src="https://img.icons8.com/fluent/30/000000/exchange-dollar.png"/>
+                        </div>
+                        <div class="transactions-buttons__minus">
+                            <img src="https://img.icons8.com/fluent/30/000000/delete-dollar.png"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="account-board__add-item hidden">
                     <input type="text" class="new-item">
                     <input type="number" class="price">
-                    <button class="add">add</button>
-                    
+                    <button class="add">
+                        <!-- <img src="https://img.icons8.com/fluent/48/000000/add.png"/> -->
+                        ADD
+                    </button>
+                    <div class="close">
+                        <img src="https://img.icons8.com/fluent/30/000000/cancel.png"/>
+                    </div>
                 </div>
-                <!-- <div class="account-board__cards">
+                <div class="account-board__cards">
                     <div class="credit-card credit-card_rocketbank">
                         <div class="credit-card__pay-system">
                             <img src="https://img.icons8.com/fluent/30/000000/mastercard.png"/>
@@ -109,7 +126,7 @@
                             5845********1236
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
             <div class="transactions">
                 <div class="transactions__header">
