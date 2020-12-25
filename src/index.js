@@ -84,6 +84,8 @@ function createItem(i){
             brand = brandArr[br];
         }
     }
+
+    let date = transactions[i].date
     
     item.innerHTML = 
         `
@@ -95,7 +97,7 @@ function createItem(i){
                 ${transactions[i].title.toUpperCase()}
             </div>
             <div class="item__date">
-                        21.12.2020
+                        ${date.day}.${date.month}.${date.year}
             </div>
         </div> 
         <div class='transactions-item__price  ${color}'>
@@ -119,8 +121,16 @@ function totalMoney(){
 
 function additem(){
         let transaction = {}
+        let transDate = {}
+
+        let date = new Date()
+        transDate.month = date.getMonth()
+        transDate.day = date.getDate()
+        transDate.year = date.getFullYear()
+
         transaction.title = newItem.value
         transaction.price = newPrice.value
+        transaction.date = transDate
         transactions.push(transaction)
         localStorage.setItem("Transactions", JSON.stringify(transactions));
         newItem.value=''
