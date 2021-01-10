@@ -1,53 +1,19 @@
 import './index.sass';
+import {brands} from './data/brands.js'
 
 const transactions = JSON.parse(localStorage.getItem("Transactions"));
 const app = document.querySelector('.transactions__list')
-const btn = document.querySelector('.add')
-const newItem = document.querySelector('.new-item')
-const newPrice = document.querySelector('.price')
-// const clearBtn = document.querySelector('.clear')
 const money = document.querySelector('.balance__money')
-money.innerText = `${totalMoney()}$`
-
-const plusBtn = document.querySelector('.transactions-buttons__plus')
+const analitics = document.querySelector('.analitics__body')
 const total = document.querySelector('.account-board__total')
 const transAdd = document.querySelector('.account-board__add-item')
 
-plusBtn.onclick = ()=>{
-    total.classList.toggle('hidden')
-    transAdd.classList.toggle('hidden')
-}
+const btnAdd = document.querySelector('.add')
+const plusBtn = document.querySelector('.transactions-buttons__plus')
+const closeBtn = document.querySelector('.close')
 
-const brandArr = {
-    spotify:'spotify',
-    steam:'steam',
-    iherb:'iherb',
-    samsung:'samsung',
-    netflix:'netflix-desktop-app',
-    ikea:'ikea',
-    hulu:'hulu',
-    zoom:'zoom',
-    trello:'trello',
-    airbnb:'airbnb',
-    uber:'uber-app',
-    nike:'nike',
-    vk:'vk-com',
-    linkedin:'linkedin',
-    'youtube music':'youtube-music',
-    xbox:'xbox--v1',
-    'microsoft office':'microsoft-office-2019',
-    slack:'slack-new',
-    'google play music':'google-play-music',
-    duolingo:'duolingo-logo',
-    'burger king':'burger-king-logo',
-    mcdonalds:'mcdonalds',
-    starbucks:'starbucks',
-    uplay:'uplay-app',
-    origin:'origin',
-    hbo:'hbo',
-    xiaomi:'xiaomi',
-    lego:'lego'
-}
+const newItem = document.querySelector('.new-item')
+const newPrice = document.querySelector('.price')
 
 if (transactions===null || transactions.length==0){
     localStorage.setItem('Transactions',JSON.stringify([]))
@@ -56,16 +22,18 @@ if (transactions===null || transactions.length==0){
     lastFiveListRender()
 }
 
-function lastFiveListRender(){
-    if (transactions.length < 5){
-        for (let i in transactions){
-            createItem(i)
-        }
-    }else{
-        for (let i=transactions.length-5;i < transactions.length;i++){
-            createItem(i)
+money.innerText = `${totalMoney()}$`
+
+function totalMoney(){
+    let sum = 0
+    for (let i in transactions){
+        if (transactions[i].price==""){
+            sum +=0
+        }else{
+            sum += parseInt(transactions[i].price)
         }
     }
+    return (sum)
 }
 
 function createItem(i){
@@ -79,9 +47,9 @@ function createItem(i){
 
     let brand='shopping-basket-2'
 
-    for(let br in brandArr){
+    for(let br in brands){
         if (br == transactions[i].title.toLowerCase()){
-            brand = brandArr[br];
+            brand = brands[br];
         }
     }
 
@@ -107,41 +75,41 @@ function createItem(i){
     item.classList.add('transactions-item')
 }
 
-function totalMoney(){
-    let sum = 0
-    for (let i in transactions){
-        if (transactions[i].price==""){
-            sum +=0
-        }else{
-            sum += parseInt(transactions[i].price)
+function addItem(){
+    let transaction = {}
+    let transDate = {}
+
+    let date = new Date()
+    transDate.month = date.getMonth() + 1
+    transDate.day = date.getDate()
+    transDate.year = date.getFullYear()
+
+    transaction.title = newItem.value
+    transaction.price = newPrice.value
+    transaction.date = transDate
+    transactions.push(transaction)
+    localStorage.setItem("Transactions", JSON.stringify(transactions));
+    newItem.value=''
+    newPrice.value=''
+    setTimeout(function(){
+        while (app.firstChild){
+            app.removeChild(app.firstChild)
         }
-    }
-    return (sum)
+        lastFiveListRender()
+        money.innerText = `${totalMoney()}$`
+    },1000)
 }
 
-function additem(){
-        let transaction = {}
-        let transDate = {}
-
-        let date = new Date()
-        transDate.month = date.getMonth()
-        transDate.day = date.getDate()
-        transDate.year = date.getFullYear()
-
-        transaction.title = newItem.value
-        transaction.price = newPrice.value
-        transaction.date = transDate
-        transactions.push(transaction)
-        localStorage.setItem("Transactions", JSON.stringify(transactions));
-        newItem.value=''
-        newPrice.value=''
-        setTimeout(function(){
-            while (app.firstChild){
-                app.removeChild(app.firstChild)
-            }
-            lastFiveListRender()
-            money.innerText = `${totalMoney()}$`
-        },1000)
+function lastFiveListRender(){
+    if (transactions.length < 5){
+        for (let i in transactions){
+            createItem(i)
+        }
+    }else{
+        for (let i=transactions.length-5;i < transactions.length;i++){
+            createItem(i)
+        }
+    }
 }
 
 function clearList(){
@@ -154,5 +122,12 @@ function clearList(){
     localStorage.setItem("Transactions", JSON.stringify(transactions))
 }
 
-btn.addEventListener('click', additem)
-// clearBtn.addEventListener('click', clearList)
+function toggleAddPanel(...elems){
+    elems.map((elem)=>{elem.classList.toggle('hidden')})
+}
+
+plusBtn.addEventListener('click', ()=>{toggleAddPanel(total,transAdd)})
+
+closeBtn.addEventListener('click', ()=>{toggleAddPanel(total,transAdd)})
+
+btnAdd.addEventListener('click', addItem)

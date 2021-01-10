@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>HOMMY</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
       rel="stylesheet">
@@ -44,103 +44,106 @@
             </div>
         </div>
         <div class="main__rightTable">
-            <div class="user">
-                <div class="user__avatar">
-                    <img src="https://img.icons8.com/fluent/48/000000/walter-white.png"/>
+            <div class="dashboard">
+                <div class="user">
+                    <div class="user__avatar">
+                        <img src="https://img.icons8.com/fluent/48/000000/walter-white.png"/>
+                    </div>
+                    <div class="user__name">Walter White</div> 
                 </div>
-                <div class="user__name">Walter White</div> 
+                <div class="account-board">
+                    <div class="account-board__total">
+                        <div class="balance">
+                            <div class="balance__header">Total balance</div>
+                            <div class="balance__money">
+                            ****
+                            </div>
+                        </div>
+                        <div class="transactions-buttons">
+                            <div class="transactions-buttons__plus">
+                                <img src="https://img.icons8.com/fluent/30/000000/add.png"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-board__add-item hidden">
+                        <div class="form">
+                            <label for="new-item">Service:</label>
+                            <input name="new-item" type="text" class="new-item">
+                            <label for="price">Price:</label>
+                            <input name="price" type="number" class="price">
+                            <button class="add">
+                            <!-- <img src="https://img.icons8.com/fluent/48/000000/add.png"/> -->
+                            ADD
+                            </button>
+                        </div>
+                        <div class="close">
+                            <img src="https://img.icons8.com/fluent/25/000000/cancel.png"/>
+                        </div>
+                    </div>
+                    <div class="account-board__cards">
+                        <div class="credit-card credit-card_rocketbank">
+                            <div class="credit-card__pay-system">
+                                <img src="https://img.icons8.com/fluent/30/000000/mastercard.png"/>
+                            </div>
+                            <div class="credit-card__name">
+                                Рокетбанк
+                            </div>
+                            <div class="credit-card__number">
+                                5890********1236
+                            </div>
+                        </div>
+                        <div class="credit-card credit-card_alfabank">
+                            <div class="credit-card__pay-system">
+                                <img src="https://img.icons8.com/fluent/30/000000/visa.png"/>
+                            </div>
+                            <div class="credit-card__name">
+                                Альфабанк
+                            </div>
+                            <div class="credit-card__number">
+                                4154********1236
+                            </div>
+                        </div>
+                        <div class="credit-card credit-card_tinkoff">
+                            <div class="credit-card__pay-system">
+                                <img src="https://img.icons8.com/fluent/30/000000/mastercard.png"/>
+                            </div>
+                            <div class="credit-card__name">
+                                Тинькофф
+                            </div>
+                            <div class="credit-card__number">
+                                5845********1236
+                            </div>
+                        </div>
+                        <div class="credit-card credit-card_vtb">
+                            <div class="credit-card__pay-system">
+                                <img src="https://img.icons8.com/fluent/30/000000/mastercard.png"/>
+                            </div>
+                            <div class="credit-card__name">
+                                ВТБ Банк
+                            </div>
+                            <div class="credit-card__number">
+                                5845********1236
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="transactions">
+                    <div class="transactions__header">
+                        Last 5 transactions
+                    </div>
+                    <ul class="transactions__list"></ul>
+                </div>
+                <div class="analitics">
+                    <div class="analitics__header">
+                        analitics
+                    </div>
+                    <div class="analitics__body">
+                        Test
+                    </div>
+                </div>
             </div>
-            <div class="account-board">
-                <div class="account-board__total">
-                    <div class="balance">
-                        <div class="balance__header">Total balance</div>
-                        <div class="balance__money">
-                        ****
-                        </div>
-                    </div>
-                    <div class="transactions-buttons">
-                        <div class="transactions-buttons__plus">
-                            <img src="https://img.icons8.com/fluent/30/000000/add-dollar.png"/>
-                        </div>
-                        <div class="transactions-buttons__transfer">
-                            <img src="https://img.icons8.com/fluent/30/000000/exchange-dollar.png"/>
-                        </div>
-                        <div class="transactions-buttons__minus">
-                            <img src="https://img.icons8.com/fluent/30/000000/delete-dollar.png"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="account-board__add-item hidden">
-                    <input type="text" class="new-item">
-                    <input type="number" class="price">
-                    <button class="add">
-                        <!-- <img src="https://img.icons8.com/fluent/48/000000/add.png"/> -->
-                        ADD
-                    </button>
-                    <div class="close">
-                        <img src="https://img.icons8.com/fluent/30/000000/cancel.png"/>
-                    </div>
-                </div>
-                <div class="account-board__cards">
-                    <div class="credit-card credit-card_rocketbank">
-                        <div class="credit-card__pay-system">
-                            <img src="https://img.icons8.com/fluent/30/000000/mastercard.png"/>
-                        </div>
-                        <div class="credit-card__name">
-                            Рокетбанк
-                        </div>
-                        <div class="credit-card__number">
-                            5890********1236
-                        </div>
-                    </div>
-                    <div class="credit-card credit-card_alfabank">
-                        <div class="credit-card__pay-system">
-                            <img src="https://img.icons8.com/fluent/30/000000/visa.png"/>
-                        </div>
-                        <div class="credit-card__name">
-                            Альфабанк
-                        </div>
-                        <div class="credit-card__number">
-                            4154********1236
-                        </div>
-                    </div>
-                    <div class="credit-card credit-card_tinkoff">
-                        <div class="credit-card__pay-system">
-                            <img src="https://img.icons8.com/fluent/30/000000/mastercard.png"/>
-                        </div>
-                        <div class="credit-card__name">
-                            Тинькофф
-                        </div>
-                        <div class="credit-card__number">
-                            5845********1236
-                        </div>
-                    </div>
-                    <div class="credit-card credit-card_vtb">
-                        <div class="credit-card__pay-system">
-                            <img src="https://img.icons8.com/fluent/30/000000/mastercard.png"/>
-                        </div>
-                        <div class="credit-card__name">
-                            ВТБ Банк
-                        </div>
-                        <div class="credit-card__number">
-                            5845********1236
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="transactions">
-                <div class="transactions__header">
-                    Last 5 transactions
-                </div>
-                <ul class="transactions__list"></ul>
-            </div>
-            <div class="analitics">
-                <div class="analitics__header">
-                    analitics
-                </div>
-                <div class="analitics__body">
-                    Test
-                </div>
+            <div class="trans-board hidden">
+                
             </div>
         </div>
     </div>

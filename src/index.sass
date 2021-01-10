@@ -20,6 +20,7 @@
   float: left
   width: 84%
   height: 500px
+  overflow: hidden
 
   &::after
     content: ""
@@ -77,11 +78,12 @@
   width: 100%
   height: 140px
   margin: 10px auto
-  border-radius: 40px
+  overflow: hidden
 
   &__total
     width: 30%
     height: 100%
+    padding-top: 30px
     float: left
 
   &__cards
@@ -94,7 +96,49 @@
     width: 30%
     height: 100%
     float: left
+    background-color: #fff
+    border-radius: 15px
+    position: relative
 
+    .form
+      width: 90%
+      float: left
+
+      .add
+        margin-top: 15px
+        margin-left: 15px
+        width:90%
+        background-color: #59f759
+        border: 1px solid #00cc00
+
+    label
+      color: gray
+      text-transform: uppercase
+      font-size: 10px
+      font-weight: 600
+      padding-left: 15px
+
+    .new-item
+      margin-bottom: 10px
+      margin-left: 15px
+      border: 1px solid #ababab
+      border-radius: 5px
+      height: 20px
+      width: 90%
+      display: block
+
+    .price
+      margin-left: 15px
+      border: 1px solid #ababab
+      border-radius: 5px
+      height: 20px
+      width: 90%
+      display: block
+
+    .close
+      position: absolute
+      top: 3px
+      right: 3px
 
 .credit-card
   float: left
@@ -139,7 +183,8 @@
   //   box-shadow: 0 0 10px rgba(75, 74, 74, 0.3)
 
 .balance
-  margin-top: 40px
+  width: 50%
+  float: left
 
   &__header
     font-size: 10px
@@ -155,6 +200,7 @@
   width: 50%
   height: 30px
   padding-top: 10px
+  float: left
 
   &__plus
     float: left
@@ -253,6 +299,13 @@
     height: 235px
     border-radius: 15px
     padding-top: 5px
+
+.trans-board
+  background-color: #fff
+  width: 100%
+  height: 462px
+  margin: 35px auto
+  border-radius: 15px
 
 .hidden
   display: none
