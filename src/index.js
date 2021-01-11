@@ -1,158 +1,159 @@
 import './index.sass';
+import toggleView from './modules/toggleView'
+import totalMoney from './modules/totalMoney'
+import lastFiveListRender from './modules/lastFiveListRender'
+import addItem from './modules/addItem'
+import analitics from './modules/analitics'
+
+// import * as am4core from "@amcharts/amcharts4/core";
+// import * as am4charts from "@amcharts/amcharts4/charts";
+// import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+// import am4themes_dataviz from "@amcharts/amcharts4/themes/dataviz"
+
 
 const transactions = JSON.parse(localStorage.getItem("Transactions"));
 const app = document.querySelector('.transactions__list')
-const btn = document.querySelector('.add')
-const newItem = document.querySelector('.new-item')
-const newPrice = document.querySelector('.price')
-// const clearBtn = document.querySelector('.clear')
 const money = document.querySelector('.balance__money')
-money.innerText = `${totalMoney()}$`
-
-const plusBtn = document.querySelector('.transactions-buttons__plus')
-const total = document.querySelector('.account-board__total')
+const total = document.querySelector('.account-board__balance')
 const transAdd = document.querySelector('.account-board__add-item')
+const dashboard = document.querySelector('.dashboard')
+const transBoard = document.querySelector('.trans-board')
+const dashboardLogo = document.querySelector('.dashboard-logo')
+const transBoardLogo = document.querySelector('.transactions-logo')
 
-plusBtn.onclick = ()=>{
-    total.classList.toggle('hidden')
-    transAdd.classList.toggle('hidden')
-}
-
-const brandArr = {
-    spotify:'spotify',
-    steam:'steam',
-    iherb:'iherb',
-    samsung:'samsung',
-    netflix:'netflix-desktop-app',
-    ikea:'ikea',
-    hulu:'hulu',
-    zoom:'zoom',
-    trello:'trello',
-    airbnb:'airbnb',
-    uber:'uber-app',
-    nike:'nike',
-    vk:'vk-com',
-    linkedin:'linkedin',
-    'youtube music':'youtube-music',
-    xbox:'xbox--v1',
-    'microsoft office':'microsoft-office-2019',
-    slack:'slack-new',
-    'google play music':'google-play-music',
-    duolingo:'duolingo-logo',
-    'burger king':'burger-king-logo',
-    mcdonalds:'mcdonalds',
-    starbucks:'starbucks',
-    uplay:'uplay-app',
-    origin:'origin',
-    hbo:'hbo',
-    xiaomi:'xiaomi',
-    lego:'lego'
-}
+const btnAdd = document.querySelector('.fields__add')
+const plusBtn = document.querySelector('.account-board__button')
+const closeBtn = document.querySelector('.form__close')
 
 if (transactions===null || transactions.length==0){
     localStorage.setItem('Transactions',JSON.stringify([]))
     console.log('No transactions')
+    app.innerHTML = '<div>No transactions yet...</div>'
 }else {
-    lastFiveListRender()
+    lastFiveListRender(transactions)
+    analitics(transactions)
 }
 
-function lastFiveListRender(){
-    if (transactions.length < 5){
-        for (let i in transactions){
-            createItem(i)
+money.innerText = `${totalMoney(transactions)}$`
+
+transBoardLogo.addEventListener('click', ()=>{toggleView(dashboard,transBoard)})
+dashboardLogo.addEventListener('click', ()=>{toggleView(transBoard,dashboard)})
+plusBtn.addEventListener('click', ()=>{toggleView(total,transAdd)})
+closeBtn.addEventListener('click', ()=>{toggleView(total,transAdd)})
+btnAdd.addEventListener('click', ()=>{
+    addItem(transactions)
+    setTimeout(function(){
+        while (app.firstChild){
+            app.removeChild(app.firstChild)
         }
-    }else{
-        for (let i=transactions.length-5;i < transactions.length;i++){
-            createItem(i)
-        }
-    }
-}
+        lastFiveListRender(transactions)
+        analitics(transactions)
+        money.innerText = `${totalMoney(transactions)}$`
+    },1000)
+})
 
-function createItem(i){
-    let item = document.createElement('div')
-    let color = ''
-    if (transactions[i].price<0){
-        color = 'minus'
-    }else{
-        color = 'plus'
-    }
+// let arr = [{
+//     month:1,
+//     sum:0
+// },
+// {
+//     month:2,
+//     sum:0
+// },
+// {
+//     month:3,
+//     sum:0
+// },
+// {
+//     month:4,
+//     sum:0
+// },
+// {
+//     month:5,
+//     sum:0
+// },
+// {
+//     month:6,
+//     sum:0
+// },
+// {
+//     month:7,
+//     sum:0
+// },
+// {
+//     month:8,
+//     sum:0
+// },
+// {
+//     month:9,
+//     sum:0
+// },
+// {
+//     month:10,
+//     sum:0
+// },
+// {
+//     month:11,
+//     sum:0
+// },
+// {
+//     month:12,
+//     sum:0
+// }]
 
-    let brand='shopping-basket-2'
+// for (let i in transactions){
+//     for(let item of arr){
+//         if (transactions[i].date.month == item.month){
+//             item.sum+=parseInt(transactions[i].price)
+//         }
+//         console.log('first',arr)
+//     }
+//     console.log('second',arr)
+// }
 
-    for(let br in brandArr){
-        if (br == transactions[i].title.toLowerCase()){
-            brand = brandArr[br];
-        }
-    }
+// console.log('final',arr)
 
-    let date = transactions[i].date
-    
-    item.innerHTML = 
-        `
-        <div class='transactions-item__logo'>
-            <img src="https://img.icons8.com/color/30/000000/${brand}.png"/>
-        </div>
-        <div class='transactions-item__title'>
-            <div class='item__name'>
-                ${transactions[i].title.toUpperCase()}
-            </div>
-            <div class="item__date">
-                        ${date.day}.${date.month}.${date.year}
-            </div>
-        </div> 
-        <div class='transactions-item__price  ${color}'>
-            ${transactions[i].price}
-        </div`
-    app.insertBefore(item, app.firstChild)
-    item.classList.add('transactions-item')
-}
+// am4core.useTheme(am4themes_dataviz)
+// am4core.useTheme(am4themes_animated)
 
-function totalMoney(){
-    let sum = 0
-    for (let i in transactions){
-        if (transactions[i].price==""){
-            sum +=0
-        }else{
-            sum += parseInt(transactions[i].price)
-        }
-    }
-    return (sum)
-}
+// let chart = am4core.create('analitics__body', am4charts.XYChart)
 
-function additem(){
-        let transaction = {}
-        let transDate = {}
+// chart.data = arr
 
-        let date = new Date()
-        transDate.month = date.getMonth()
-        transDate.day = date.getDate()
-        transDate.year = date.getFullYear()
+// let xAxis = chart.xAxes.push(new am4charts.CategoryAxis())
+// xAxis.dataFields.category = 'month'
+// xAxis.renderer.minGridDistance = 50
+// xAxis.renderer.grid.template.location = 0.5
+// xAxis.startLocation = 0.5
+// xAxis.endLocation = 0.5
 
-        transaction.title = newItem.value
-        transaction.price = newPrice.value
-        transaction.date = transDate
-        transactions.push(transaction)
-        localStorage.setItem("Transactions", JSON.stringify(transactions));
-        newItem.value=''
-        newPrice.value=''
-        setTimeout(function(){
-            while (app.firstChild){
-                app.removeChild(app.firstChild)
-            }
-            lastFiveListRender()
-            money.innerText = `${totalMoney()}$`
-        },1000)
-}
+// let yAxis = chart.yAxes.push(new am4charts.ValueAxis())
+// yAxis.baseValue = 0
 
-function clearList(){
-    for (let i=0; transactions.length; i++){
-        transactions.pop();
-    }
-    while (app.firstChild){
-        app.removeChild(app.firstChild)
-    }
-    localStorage.setItem("Transactions", JSON.stringify(transactions))
-}
+// let series = chart.series.push(new am4charts.LineSeries())
+// series.dataFields.valueY = "sum";
+// series.dataFields.categoryX = "month";
+// series.strokeWidth = 2;
+// series.tensionX = 0.77;
 
-btn.addEventListener('click', additem)
-// clearBtn.addEventListener('click', clearList)
+// let bullet = series.bullets.push(new am4charts.Bullet());
+// bullet.tooltipText = "{valueY}";
+
+// bullet.adapter.add("fill", function(fill, target){
+//     if(target.dataItem.valueY < 0){
+//         return am4core.color("#FF0000");
+//     }
+//     return fill;
+// })
+// // let range = yAxis.createSeriesRange(series);
+// // range.value = 0;
+// // range.endValue = -1000;
+// // range.contents.stroke = am4core.color("#FF0000");
+// // range.contents.fill = range.contents.stroke;
+
+// // Add scrollbar
+// // let scrollbarX = new am4charts.XYChartScrollbar();
+// // scrollbarX.series.push(series);
+// // chart.scrollbarX = scrollbarX;
+
+// chart.cursor = new am4charts.XYCursor();
