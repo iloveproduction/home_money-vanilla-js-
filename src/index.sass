@@ -3,6 +3,23 @@
  padding:0
  font-family: Roboto, "Helvetica Neue", Arial, Helvetica, sans-serif
 
+.minus
+  color: rgb(167, 3, 3)
+
+.plus
+  color: rgb(0, 182, 45)
+
+.hidden
+  display: none
+
+.test
+  width: 0px
+  height: 10px
+  background-color: #4bb32b
+
+  &:hover
+    width: 50px
+
 .main
  width: 1200px
  margin: 175px auto
@@ -27,8 +44,38 @@
     display: block
     width: 100%
     clear: both
+
+.nav
+  background-color: #fff
+  width: 80px
+  height: 465px
+  margin: 35px auto
+  border-radius: 15px
+  overflow: auto
+  position: relative
+
+  &__logo
+    margin: 20px auto
+    text-align: center
+    font-weight: 900
+    font-style: 15px
+    color: #213a5a
+
+  &__menu
+    text-align: center
+    margin-top: 70px
+      
+.menu
     
-.user
+  &__item
+    margin-bottom: 20px
+
+  &__exit
+    position: absolute
+    bottom: 20px
+    left: 25px  
+
+.board-title
   height:50px
   width:180px
   margin-top:35px
@@ -44,43 +91,13 @@
     font-weight: 600
     width: 80%
 
-.nav
-  background-color: #fff
-  width: 80px
-  height: 465px
-  margin: 35px auto
-  border-radius: 15px
-  overflow: auto
-  position: relative
-
-  &__logo
-    margin: 20px auto
-    text-align: center
-
-  &__menu
-    text-align: center
-    margin-top: 70px
-
-.logo
-  font-weight: 900
-  font-style: 15px
-  color: #213a5a
- 
-.menu-item
-  margin-bottom: 20px
-
-.exit
-  position: absolute
-  bottom: 20px
-  left: 25px
-
 .account-board
   width: 100%
   height: 140px
   margin: 10px auto
   overflow: hidden
 
-  &__total
+  &__balance
     width: 30%
     height: 100%
     padding-top: 30px
@@ -91,6 +108,20 @@
     height: 100%
     margin-left: 30px
     float: left
+  
+  &__button
+    width: 50%
+    height: 30px
+    padding-top: 10px
+    float: left
+
+    &:hover
+      cursor: pointer
+
+    &::after
+      content: ""
+      width: 100%
+      clear: both
 
   &__add-item
     width: 30%
@@ -100,53 +131,51 @@
     border-radius: 15px
     position: relative
 
-    .form
-      width: 90%
-      float: left
+.form
+  width: 90%
+  float: left
 
-      input:focus
-        outline: none
-        border:1px solid #00cf11
+  &__close
+    position: absolute
+    top: 3px
+    right: 3px
+    cursor: pointer
 
-      .add
-        margin-top: 15px
-        margin-left: 15px
-        width:90%
-        height: 25px
-        background-color: #00cf11
-        border: 1px solid #00cc00
-        border-radius: 5px
-        cursor: pointer
+.fields
 
-    label
-      color: gray
-      text-transform: uppercase
-      font-size: 10px
-      font-weight: 600
-      padding-left: 15px
+  &__label
+    color: gray
+    text-transform: uppercase
+    font-size: 10px
+    font-weight: 600
+    padding-left: 15px
 
-    .new-item
-      margin-bottom: 10px
-      margin-left: 15px
-      border: 1px solid #ababab
-      border-radius: 5px
-      height: 20px
-      width: 90%
-      display: block
+  &__new-item
+    margin-bottom: 10px
+    margin-left: 15px
+    border: 1px solid #ababab
+    border-radius: 5px
+    height: 20px
+    width: 90%
+    display: block
 
-    .price
-      margin-left: 15px
-      border: 1px solid #ababab
-      border-radius: 5px
-      height: 20px
-      width: 90%
-      display: block
+  &__price
+    margin-left: 15px
+    border: 1px solid #ababab
+    border-radius: 5px
+    height: 20px
+    width: 90%
+    display: block
 
-    .close
-      position: absolute
-      top: 3px
-      right: 3px
-      cursor: pointer
+  &__add
+    margin-top: 15px
+    margin-left: 15px
+    width:90%
+    height: 25px
+    background-color: #00cf11
+    border: 1px solid #00cc00
+    border-radius: 5px
+    cursor: pointer
 
 .credit-card
   float: left
@@ -187,9 +216,6 @@
     background-color: rgb(1,74,142)
     color: #fff
 
-  // &:hover
-  //   box-shadow: 0 0 10px rgba(75, 74, 74, 0.3)
-
 .balance
   width: 50%
   float: left
@@ -203,35 +229,6 @@
   &__money
     font-size: 30px
     font-weight: 700
-
-.transactions-buttons
-  width: 50%
-  height: 30px
-  padding-top: 10px
-  float: left
-
-  &__plus
-    float: left
-    width: 30%
-
-    &:hover
-      cursor: pointer
-
-  &__minus
-    float: left
-    width: 30%
-
-    &:hover
-      cursor: pointer
-
-  &__transfer
-    float: left
-    width: 30%
-
-  &::after
-    content: ""
-    width: 100%
-    clear: both
 
 .transactions
   width: 30%
@@ -284,12 +281,6 @@
     font-weight: 500
     color: rgb(165, 164, 164)
 
-.minus
-  color: rgb(167, 3, 3)
-
-.plus
-  color: rgb(0, 182, 45)
-
 .analitics
   width: 64%
   float: left
@@ -314,6 +305,3 @@
   height: 462px
   margin: 35px auto
   border-radius: 15px
-
-.hidden
-  display: none

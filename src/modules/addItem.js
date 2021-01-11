@@ -1,5 +1,5 @@
-const newItem = document.querySelector('.new-item')
-const newPrice = document.querySelector('.price')
+const newItem = document.querySelector('.fields__new-item')
+const newPrice = document.querySelector('.fields__price')
 
 export default function addItem(transactions){
     if (newItem.value == '' && newPrice.value == ''){

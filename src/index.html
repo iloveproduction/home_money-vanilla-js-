@@ -11,76 +11,67 @@
 <body>
     <div class="main">
         <div class="main__leftTable">
-            
             <div class="nav">
                 <div class="nav__logo">
-                    <div class="logo">HOMMY</div>
+                    HOMMY
                 </div>
                 <div class="nav__menu">
-                    <div class="menu-item">
-                        <div class="dashboard-logo">
-                            <img src="https://img.icons8.com/fluent/30/000000/home.png"/>
+                    <div class="menu">
+                        <div class="menu__item">
+                            <img class="dashboard-logo" src="https://img.icons8.com/fluent/30/000000/home.png"/>
                         </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="trans-board-logo">
-                            <img src="https://img.icons8.com/fluent/30/000000/purchase-order.png"/>
+                        <div class="menu__item">
+                            <img class="transactions-logo" src="https://img.icons8.com/fluent/30/000000/purchase-order.png"/>
                         </div>
-                    </div>
-                    <div class="menu-item">
-                        <a href="#">
+                        <div class="menu__item">
                             <img src="https://img.icons8.com/fluent/30/000000/bank-cards.png"/>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="#">
+                        </div>
+                        <div class="menu__item">
                             <img src="https://img.icons8.com/fluent/30/000000/settings.png"/>
-                        </a>
-                    </div>
-                    <div class="exit">
-                        <img src="https://img.icons8.com/fluent/30/000000/exit.png"/>
+                        </div>
+                        <div class="menu__exit">
+                            <img src="https://img.icons8.com/fluent/30/000000/exit.png"/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="main__rightTable">
             <div class="dashboard">
-                <div class="user">
-                    <!-- <div class="user__avatar">
-                        <img src="https://img.icons8.com/fluent/48/000000/walter-white.png"/>
-                    </div>
-                    <div class="user__name">Walter White</div>  -->
-                    <div class="user__avatar">
+                <div class="board-title">
+                    <div class="board-title__avatar">
                         <img src="https://img.icons8.com/fluent/35/000000/home.png"/>
                     </div>
-                    <div class="user__name">Dashboard</div>
+                    <div class="board-title__name">Dashboard</div>
                 </div>
                 <div class="account-board">
-                    <div class="account-board__total">
+                    <div class="account-board__balance">
                         <div class="balance">
                             <div class="balance__header">Total balance</div>
                             <div class="balance__money">
                             ****
                             </div>
                         </div>
-                        <div class="transactions-buttons">
-                            <div class="transactions-buttons__plus">
-                                <img src="https://img.icons8.com/fluent/30/000000/add.png"/>
-                            </div>
+                        <div class="account-board__button">
+                            <img src="https://img.icons8.com/fluent/30/000000/add.png"/>
+                            <div class="test"></div>
                         </div>
                     </div>
                     <div class="account-board__add-item hidden">
                         <div class="form">
-                            <label for="new-item">Service:</label>
-                            <input name="new-item" type="text" class="new-item">
-                            <label for="price">Price:</label>
-                            <input name="price" type="number" class="price">
-                            <button class="add">
-                            <!-- <img src="https://img.icons8.com/fluent/48/000000/add.png"/> -->
-                            ADD
-                            </button>
+                            <div class="form__fields">
+                                <div class="fields">
+                                    <label for="new-item" class="fields__label">Service:</label>
+                                    <input name="new-item" type="text" class="fields__new-item">
+                                    <label for="price" class="fields__label">Price:</label>
+                                    <input name="price" type="number" class="fields__price">
+                                    <button class="fields__add">
+                                        ADD
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="close">
+                        <div class="form__close">
                             <img src="https://img.icons8.com/fluent/25/000000/cancel.png"/>
                         </div>
                     </div>
