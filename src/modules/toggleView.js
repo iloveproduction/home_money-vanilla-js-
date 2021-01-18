@@ -1,3 +1,5 @@
-export default function toggleView(...elems){
-    elems.map((elem)=>{elem.classList.toggle('hidden')})
+export function toggleView(...elems){
+    elems.map((elem)=>{
+            elem.classList.toggle('hidden')
+    })
 }

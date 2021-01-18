@@ -1,7 +1,7 @@
 const newItem = document.querySelector('.fields__new-item')
 const newPrice = document.querySelector('.fields__price')
 
-export default function addItem(transactions){
+export function addItem(transactions){
     if (newItem.value == '' && newPrice.value == ''){
          console.log('work')
     }else{
@@ -16,10 +16,10 @@ export default function addItem(transactions){
         transaction.title = newItem.value
         transaction.price = newPrice.value
         transaction.date = transDate
-        transactions.push(transaction)
+        transactions.unshift(transaction)
 
         newItem.value=newPrice.value=''
 
-        localStorage.setItem("Transactions", JSON.stringify(transactions));
+        localStorage.setItem("Transactions", JSON.stringify(transactions))
     }
 }

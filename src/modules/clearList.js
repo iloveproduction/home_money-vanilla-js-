@@ -1,4 +1,4 @@
-export default function clearList(transactions){
+export function clearList(transactions){
     const list = document.querySelector('.transactions__list')
     for (let i=0; transactions.length; i++){
         transactions.pop();

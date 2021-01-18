@@ -3,7 +3,7 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_dataviz from "@amcharts/amcharts4/themes/dataviz"
 
-export default function analitics(transactions){
+export function analitics(transactions){
 
     am4core.useTheme(am4themes_dataviz)
     am4core.useTheme(am4themes_animated)

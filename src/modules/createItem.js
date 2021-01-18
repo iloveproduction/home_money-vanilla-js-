@@ -1,20 +1,20 @@
 import {brands} from '../data/brands'
 
-export default function createItem(i,transactions){
+export function createItem(index,arr,place,option){
     let item = document.createElement('div')
     let brand='shopping-basket-2'
     let color = ''
-    let date = transactions[i].date
-    const list = document.querySelector('.transactions__list')
+    let date = arr[index].date
+    let trash = option
 
-    if (transactions[i].price < 0){
+    if (arr[index].price < 0){
         color = 'minus'
     }else{
         color = 'plus'
     }
 
     for(let br in brands){
-        if (br == transactions[i].title.toLowerCase()){
+        if (br == arr[index].title.toLowerCase()){
             brand = brands[br];
         }
     }
@@ -26,15 +26,17 @@ export default function createItem(i,transactions){
         </div>
         <div class='transactions-item__title'>
             <div class='item__name'>
-                ${transactions[i].title.toUpperCase()}
+                ${arr[index].title.toUpperCase()}
             </div>
             <div class="item__date">
                         ${date.day}.${date.month}.${date.year}
             </div>
         </div> 
-        <div class='transactions-item__price  ${color}'>
-            ${transactions[i].price}
-        </div`
-    list.insertBefore(item, list.firstChild)
+        <div class='transactions-item__price ${color}'>
+            ${arr[index].price}$
+        </div>
+        ${trash ? "<div class='trash'><img src='https://img.icons8.com/color/25/000000/trash--v1.png'/></div>" : ''}
+        `
+    place.insertAdjacentElement('beforeend', item)
     item.classList.add('transactions-item')
 }

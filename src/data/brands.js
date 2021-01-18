@@ -26,5 +26,14 @@ export const brands = {
     origin:"origin",
     hbo:"hbo",
     "xiaomi":"xiaomi",
-    lego:'lego'
+    lego:'lego',
+    gas:'gas-station',
+    bus:'bus',
+    'car service':'car-service',
+    sport:'dumbbell',
+    'car rental':'car-rental',
+    taxi:'taxi',
+    airplane:'airplane-front-view',
+    parking:'paid-parking',
+    work:'banknotes'
 }
