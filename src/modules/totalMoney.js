@@ -1,4 +1,4 @@
-export default function totalMoney(transactions){
+export function totalMoney(transactions){
     let sum = 0
 
     for (let i in transactions){

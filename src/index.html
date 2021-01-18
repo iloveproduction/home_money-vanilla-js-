@@ -26,11 +26,8 @@
                         <div class="menu__item">
                             <img src="https://img.icons8.com/fluent/30/000000/bank-cards.png"/>
                         </div>
-                        <div class="menu__item">
+                        <div class="menu__settings">
                             <img src="https://img.icons8.com/fluent/30/000000/settings.png"/>
-                        </div>
-                        <div class="menu__exit">
-                            <img src="https://img.icons8.com/fluent/30/000000/exit.png"/>
                         </div>
                     </div>
                 </div>
@@ -54,25 +51,6 @@
                         </div>
                         <div class="account-board__button">
                             <img src="https://img.icons8.com/fluent/30/000000/add.png"/>
-                            <div class="test"></div>
-                        </div>
-                    </div>
-                    <div class="account-board__add-item hidden">
-                        <div class="form">
-                            <div class="form__fields">
-                                <div class="fields">
-                                    <label for="new-item" class="fields__label">Service:</label>
-                                    <input name="new-item" type="text" class="fields__new-item">
-                                    <label for="price" class="fields__label">Price:</label>
-                                    <input name="price" type="number" class="fields__price">
-                                    <button class="fields__add">
-                                        ADD
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form__close">
-                            <img src="https://img.icons8.com/fluent/25/000000/cancel.png"/>
                         </div>
                     </div>
                     <div class="account-board__cards">
@@ -139,7 +117,37 @@
                 </div>
             </div>
             <div class="trans-board hidden">
-                
+                <div class="board-title">
+                    <div class="board-title__avatar">
+                        <img src="https://img.icons8.com/fluent/35/000000/purchase-order.png"/>
+                    </div>
+                    <div class="board-title__name">All Transactions</div>
+                </div>
+                <div class="trans-board__body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hidden">
+        <div class="form">
+            <div class="form__header">
+                <div class="modal-header">
+                    <span>Add transaction</span>
+                    <img class="modal-header__close" src="https://img.icons8.com/fluent/25/000000/cancel.png"/>
+                </div>
+            </div>
+            <div class="form__fields"> 
+                <div class="fields">
+                    <label for="new-item" class="fields__label">Service:</label>
+                    <input name="new-item" type="text" class="fields__new-item">
+                    <label for="price" class="fields__label">Price:</label>
+                    <input name="price" type="number" class="fields__price">
+                    <button class="fields__add">
+                        ADD
+                    </button>
+                </div>
             </div>
         </div>
     </div>

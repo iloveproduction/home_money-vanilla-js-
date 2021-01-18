@@ -1,7 +1,12 @@
 *
- margin:0
- padding:0
- font-family: Roboto, "Helvetica Neue", Arial, Helvetica, sans-serif
+  margin:0
+  padding:0
+  box-sizing: border-box
+  font-family: Roboto, "Helvetica Neue", Arial, Helvetica, sans-serif
+  &:focus
+      outline: rgba(45,34, 243,0.5 )
+      outline-width: 1px
+      outline-style: auto
 
 .minus
   color: rgb(167, 3, 3)
@@ -11,14 +16,6 @@
 
 .hidden
   display: none
-
-.test
-  width: 0px
-  height: 10px
-  background-color: #4bb32b
-
-  &:hover
-    width: 50px
 
 .main
  width: 1200px
@@ -39,11 +36,11 @@
   height: 500px
   overflow: hidden
 
-  &::after
-    content: ""
-    display: block
-    width: 100%
-    clear: both
+  // &::after
+  //   content: ""
+  //   display: block
+  //   width: 100%
+  //   clear: both
 
 .nav
   background-color: #fff
@@ -63,17 +60,24 @@
 
   &__menu
     text-align: center
-    margin-top: 70px
+    height: 333px
+    display: flex
+    align-items: center
+    justify-content: center
       
 .menu
     
   &__item
     margin-bottom: 20px
 
-  &__exit
+  &__settings
     position: absolute
     bottom: 20px
     left: 25px  
+
+.dashboard
+  height: 500px
+  width: 100%
 
 .board-title
   height:50px
@@ -122,60 +126,6 @@
       content: ""
       width: 100%
       clear: both
-
-  &__add-item
-    width: 30%
-    height: 100%
-    float: left
-    background-color: #fff
-    border-radius: 15px
-    position: relative
-
-.form
-  width: 90%
-  float: left
-
-  &__close
-    position: absolute
-    top: 3px
-    right: 3px
-    cursor: pointer
-
-.fields
-
-  &__label
-    color: gray
-    text-transform: uppercase
-    font-size: 10px
-    font-weight: 600
-    padding-left: 15px
-
-  &__new-item
-    margin-bottom: 10px
-    margin-left: 15px
-    border: 1px solid #ababab
-    border-radius: 5px
-    height: 20px
-    width: 90%
-    display: block
-
-  &__price
-    margin-left: 15px
-    border: 1px solid #ababab
-    border-radius: 5px
-    height: 20px
-    width: 90%
-    display: block
-
-  &__add
-    margin-top: 15px
-    margin-left: 15px
-    width:90%
-    height: 25px
-    background-color: #00cf11
-    border: 1px solid #00cc00
-    border-radius: 5px
-    cursor: pointer
 
 .credit-card
   float: left
@@ -243,33 +193,32 @@
 
   &__list
     background-color: #fff
-    height: 235px
+    height: 240px
     border-radius: 15px
-    padding-top: 5px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    padding: 5px 10px
 
 .transactions-item
-  margin: 0 auto
-  width: 90%
-  height: 40px
-  margin-top: 5px
-  border-radius: 5px
-  list-style-type: none
-  overflow: hidden
+  width: 100%
+  padding: 5px
+  display: flex
+  align-items: center
 
   &__logo
-    float: left
-    margin: 5px 10px 5px 0
+    margin: 0px 10px 0px 0px
+    width: 30px
 
   &__title
-    margin-top: 10px
-    width: 45%
-    float: left
     overflow: hidden
+    width: 60%
 
   &__price
-    margin: 10px 0 0 60px
-    float: left
     font-weight: 500
+    width: 30%
+    text-align: end
 
 .item
   &__name
@@ -300,8 +249,74 @@
     padding-top: 5px
 
 .trans-board
-  background-color: #fff
   width: 100%
   height: 462px
   margin: 35px auto
+  
+  &__body
+    height: 414px
+    padding: 15px
+    background-color: #fff
+    border-radius: 15px
+    overflow-y: scroll
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.modal
+  position: fixed
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+  background: rgba(0, 0, 0, 0.5)
+
+.form
+  width: 500px
+  background-color: #fff
   border-radius: 15px
+  margin: 270px auto
+
+  &__header
+    border-bottom: 1px solid #eee
+
+  &__fields
+    padding: 10px
+
+.modal-header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 10px
+  font-weight: 600
+
+  &__close
+    cursor: pointer
+
+.fields
+
+  &__label
+    color: gray
+    text-transform: uppercase
+    font-size: 10px
+    font-weight: 600
+
+  input
+    margin-bottom: 10px
+    border: 1px solid #ababab
+    border-radius: 5px
+    height: 25px
+    width: 100%
+    padding-left: 2px
+
+  &__add
+    width:100%
+    height: 25px
+    background-color: #00cf11
+    border: 1px solid #00cc00
+    border-radius: 5px
+    cursor: pointer
+    font-weight: 500
+    color: #fff
+    font-size: 15px
+      
