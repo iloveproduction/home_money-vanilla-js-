@@ -1,10 +1,12 @@
-import './index.sass';
+import './styles/desktop.sass'
+import './styles/phone.sass'
 import {toggleView} from './modules/toggleView'
 import {totalMoney} from './modules/totalMoney'
 import {lastFiveListRender} from './modules/lastFiveListRender'
 import {addItem} from './modules/addItem'
 // import {analitics} from './modules/analitics'
 import {allTransactionsRender} from './modules/allTransactionsRender'
+import {removeItem} from './modules/removeItem'
 
 
 const transactions = JSON.parse(localStorage.getItem("Transactions"));
@@ -14,7 +16,7 @@ const total = document.querySelector('.account-board__balance')
 const transAdd = document.querySelector('.account-board__add-item')
 const dashboard = document.querySelector('.dashboard')
 const transBoard = document.querySelector('.trans-board')
-const transBoardBody = document.querySelector('.trans-board__body')
+// const transBoardBody = document.querySelector('.trans-board__body')
 const dashboardLogo = document.querySelector('.dashboard-logo')
 const transBoardLogo = document.querySelector('.transactions-logo')
 const modal = document.querySelector('.modal')
@@ -35,24 +37,10 @@ if (transactions===null || transactions.length==0){
 
 money.innerText = `${totalMoney(transactions)}$`
 
-function removeItem(){
-    const trash = document.querySelectorAll('.trash')
-    for (let index = 0; index < trash.length; index++){
-        trash[index].onclick=()=>{
-            console.log(index)
-            transactions.splice(index,1)
-            localStorage.setItem("Transactions", JSON.stringify(transactions))
-            transBoardBody.innerHTML=''
-            allTransactionsRender(transactions)
-            removeItem()
-        }
-    }
-}
-
 transBoardLogo.addEventListener('click', ()=>{
     if(transBoard.classList.contains('hidden')){
         toggleView(dashboard,transBoard)
-        removeItem()
+        removeItem(transactions)
     }
 })
 dashboardLogo.addEventListener('click', ()=>{
