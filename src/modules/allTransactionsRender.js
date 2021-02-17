@@ -1,8 +1,8 @@
-import {createItem} from './createItem'
+import {createItem} from './createItem';
 
-const transBoardBody = document.querySelector('.trans-board__body')
+const transBoardBody = document.querySelector('.trans-board__body');
 export function allTransactionsRender(transactions){
     for (let i in transactions){
-        createItem(i,transactions,transBoardBody,true)
+        createItem(i,transactions,transBoardBody,true);
     }
 }
