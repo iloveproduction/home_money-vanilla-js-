@@ -1,25 +1,25 @@
-const newItem = document.querySelector('.fields__new-item')
-const newPrice = document.querySelector('.fields__price')
+const newItem = document.querySelector('.fields__new-item');
+const newPrice = document.querySelector('.fields__price');
 
 export function addItem(transactions){
     if (newItem.value == '' && newPrice.value == ''){
-         console.log('work')
+         console.log('work');
     }else{
-        let transaction = {}
-        let transDate = {}
+        let transaction = {};
+        let transDate = {};
     
-        let date = new Date()
-        transDate.month = date.getMonth() + 1
-        transDate.day = date.getDate()
-        transDate.year = date.getFullYear()
+        let date = new Date();
+        transDate.month = date.getMonth() + 1;
+        transDate.day = date.getDate();
+        transDate.year = date.getFullYear();
 
-        transaction.title = newItem.value
-        transaction.price = newPrice.value
-        transaction.date = transDate
-        transactions.unshift(transaction)
+        transaction.title = newItem.value;
+        transaction.price = newPrice.value;
+        transaction.date = transDate;
+        transactions.unshift(transaction);
 
-        newItem.value=newPrice.value=''
+        newItem.value=newPrice.value='';
 
-        localStorage.setItem("Transactions", JSON.stringify(transactions))
+        localStorage.setItem("Transactions", JSON.stringify(transactions));
     }
 }

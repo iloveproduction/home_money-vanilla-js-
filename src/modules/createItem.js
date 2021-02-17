@@ -1,16 +1,16 @@
-import {brands} from '../data/brands'
+import {brands} from '../data/brands';
 
 export function createItem(index,arr,place,option){
-    let item = document.createElement('div')
-    let brand='shopping-basket-2'
-    let color = ''
-    let date = arr[index].date
-    let trash = option
+    let item = document.createElement('div');
+    let brand='shopping-basket-2';
+    let color = '';
+    let date = arr[index].date;
+    let trash = option;
 
     if (arr[index].price < 0){
-        color = 'minus'
+        color = 'minus';
     }else{
-        color = 'plus'
+        color = 'plus';
     }
 
     for(let br in brands){
@@ -36,7 +36,7 @@ export function createItem(index,arr,place,option){
             ${arr[index].price}$
         </div>
         ${trash ? "<div class='trash'><img src='https://img.icons8.com/color/25/000000/trash--v1.png'/></div>" : ''}
-        `
-    place.insertAdjacentElement('beforeend', item)
-    item.classList.add('transactions-item')
+        `;
+    place.insertAdjacentElement('beforeend', item);
+    item.classList.add('transactions-item');
 }
