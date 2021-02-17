@@ -14,9 +14,6 @@
 .plus
   color: rgb(0, 182, 45)
 
-.hidden
-  display: none
-
 .main
  width: 1200px
  margin: 175px auto
@@ -42,12 +39,12 @@
   margin: 35px auto
   border-radius: 15px
   position: relative
+  overflow: hidden
 
   &__logo
     margin: 20px auto
     text-align: center
     font-weight: 900
-    font-style: 15px
     color: #213a5a
 
   &__menu
@@ -62,21 +59,57 @@
   &__item
     margin-bottom: 20px
 
+    &:hover
+      cursor: pointer
+
   &__settings
     position: absolute
     bottom: 20px
     left: 25px  
 
 .dashboard
+  display: grid
+  margin: 35px 0 0 0
+  grid-template-rows: 60px 132px 256px
+  grid-template-columns: 34% 64%
+  grid-gap: 10px
+  width: 1000px
   height: 500px
-  width: 100%
+  justify-content: space-between
+  grid-template-areas: "header header" "balance cards" "transactions analitics"
+
+  &__balance
+    height: 100%
+    padding: 30px 10px
+    grid-area: balance
+
+    &__button
+      width: 50%
+      height: 30px
+      padding-top: 10px
+      float: left
+
+    &:hover
+      cursor: pointer
+
+    &::after
+      content: ""
+      width: 100%
+      clear: both
+
+  &__cards
+    height: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    grid-area: cards
 
 .board-title
   height:50px
   width:180px
-  margin-top:35px
   display: flex
   align-items: center
+  grid-area: header
 
   &__avatar
     padding-right: 10px
@@ -87,49 +120,10 @@
     font-weight: 600
     width: 80%
 
-.account-board
-  width: 100%
-  height: 140px
-  margin: 10px auto
-  overflow: hidden
-
-  &__balance
-    width: 30%
-    height: 100%
-    padding-top: 30px
-    float: left
-
-  &__cards
-    width: 67%
-    height: 100%
-    margin-left: 30px
-    // float: left
-    display: flex
-    justify-content: space-between
-    align-items: center
-
-  
-  &__button
-    width: 50%
-    height: 30px
-    padding-top: 10px
-    float: left
-
-    &:hover
-      cursor: pointer
-
-    &::after
-      content: ""
-      width: 100%
-      clear: both
-
 .credit-card
-  // float: left
   width: 150px
   height: 100px
-  // margin-right: 15px
   border-radius: 10px
-  // overflow: hidden
   transform-origin: center
   transition: 0.5s
   
@@ -184,8 +178,7 @@
     font-weight: 700
 
 .transactions
-  width: 30%
-  float: left
+  grid-area: transactions
 
   &__header
     color: grey
@@ -234,9 +227,7 @@
     color: rgb(165, 164, 164)
 
 .analitics
-  width: 64%
-  float: left
-  margin-left: 35px
+  grid-area: analitics
 
   &__header
     color: grey
@@ -323,3 +314,5 @@
     color: #fff
     font-size: 15px
       
+.hidden
+  display: none

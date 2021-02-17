@@ -16,13 +16,12 @@ const total = document.querySelector('.account-board__balance');
 const transAdd = document.querySelector('.account-board__add-item');
 const dashboard = document.querySelector('.dashboard');
 const transBoard = document.querySelector('.trans-board');
-// const transBoardBody = document.querySelector('.trans-board__body')
 const dashboardLogo = document.querySelector('.dashboard-logo');
 const transBoardLogo = document.querySelector('.transactions-logo');
 const modal = document.querySelector('.modal');
 
 const btnAdd = document.querySelector('.fields__add');
-const plusBtn = document.querySelector('.account-board__button');
+const plusBtn = document.querySelector('.button');
 const closeBtn = document.querySelector('.modal-header__close');
 
 if (transactions===null || transactions.length==0){
