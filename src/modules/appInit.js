@@ -13,14 +13,6 @@ export function appInit(){
     
     if (transactions === null || transactions.length == 0){
         localStorage.setItem('Transactions',JSON.stringify([]));
-        localStorage.setItem('Cards',JSON.stringify([{
-            name:'Рокетбанк',
-            paySystem:'mastercard'
-        },
-        {
-            name:'Альфабанк',
-            paySystem:'visa'
-        }]));
         console.log('No transactions');
         transList.innerHTML = '<div>No transactions yet...</div>';
     }else{
