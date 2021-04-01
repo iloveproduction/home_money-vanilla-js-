@@ -5,7 +5,6 @@ export function createItem(index,arr,place,option){
     let brand='shopping-basket-2';
     let color = '';
     let date = arr[index].date;
-    let trash = option;
 
     if (arr[index].price < 0){
         color = 'minus';
@@ -35,7 +34,7 @@ export function createItem(index,arr,place,option){
         <div class='transactions-item__price ${color}'>
             ${arr[index].price}$
         </div>
-        ${trash ? "<div class='trash'><img src='https://img.icons8.com/color/25/000000/trash--v1.png'/></div>" : ''}
+        ${option ? "<div class='trash'><img src='https://img.icons8.com/color/25/000000/trash--v1.png'/></div>" : ''}
         `;
     place.insertAdjacentElement('beforeend', item);
     item.classList.add('transactions-item');

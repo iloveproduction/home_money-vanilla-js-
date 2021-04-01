@@ -1,19 +1,11 @@
 import './styles/desktop.sass'
 import './styles/phone.sass'
+
+import Transaction from './modules/Transaction'
+import {appInit} from './modules/appInit'
 import {toggleView} from './modules/toggleView'
-import {totalMoney} from './modules/totalMoney'
-import {lastFiveListRender} from './modules/lastFiveListRender'
-import {addItem} from './modules/addItem'
-// import {analitics} from './modules/analitics'
-import {allTransactionsRender} from './modules/allTransactionsRender'
 import {removeItem} from './modules/removeItem'
 
-
-const transactions = JSON.parse(localStorage.getItem("Transactions"));
-const app = document.querySelector('.transactions__list');
-const money = document.querySelector('.balance__money');
-const total = document.querySelector('.account-board__balance');
-const transAdd = document.querySelector('.account-board__add-item');
 const dashboard = document.querySelector('.dashboard');
 const transBoard = document.querySelector('.trans-board');
 const dashboardLogo = document.querySelector('.dashboard-logo');
@@ -24,39 +16,35 @@ const btnAdd = document.querySelector('.fields__add');
 const plusBtn = document.querySelector('.button');
 const closeBtn = document.querySelector('.modal-header__close');
 
-if (transactions===null || transactions.length==0){
-    localStorage.setItem('Transactions',JSON.stringify([]));
-    console.log('No transactions');
-    app.innerHTML = '<div>No transactions yet...</div>';
-}else {
-    lastFiveListRender(transactions);
-    // analitics(transactions)
-    allTransactionsRender(transactions);
-}
-
-money.innerText = `${totalMoney(transactions)}$`;
+appInit();
 
 transBoardLogo.addEventListener('click', ()=>{
     if(transBoard.classList.contains('hidden')){
         toggleView(dashboard,transBoard);
-        removeItem(transactions);
+        appInit();
+        removeItem();
     }
 });
 dashboardLogo.addEventListener('click', ()=>{
     if(dashboard.classList.contains('hidden')){
         toggleView(transBoard,dashboard);
+        appInit();
     }
 });
+
 plusBtn.addEventListener('click', ()=>{toggleView(modal)});
 closeBtn.addEventListener('click', ()=>{toggleView(modal)});
 btnAdd.addEventListener('click', ()=>{
-    addItem(transactions);
+    const newItem = document.querySelector('.fields__new-item');
+    const newPrice = document.querySelector('.fields__price');
+
+    let transaction = new Transaction(newItem.value,newPrice.value);
+    transaction.add();
+    newItem.value=newPrice.value='';
     setTimeout(function(){
-        while (app.firstChild){
-            app.removeChild(app.firstChild);
-        }
-        lastFiveListRender(transactions)
-        // analitics(transactions)
-        money.innerText = `${totalMoney(transactions)}$`;
+        appInit();
     },1000);
 });
+
+
+

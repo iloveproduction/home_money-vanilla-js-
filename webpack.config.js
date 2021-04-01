@@ -4,12 +4,10 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { env } = require('process');
 
-const isProd = env.production
-
-module.exports = function(isProd) {
+module.exports = function() {
   return {
     entry: './src/index.js',
-    mode:isProd?'production':'development',
+    mode:'development',
     module:{
         rules:[
           {
@@ -37,9 +35,9 @@ module.exports = function(isProd) {
     devServer:{
       port:9000
     },
-    devtool:isProd?false:'source-map',
+    devtool:'source-map',
     output: {
-      filename: isProd?'bundle.[hash].js':'bundle.js',
+      filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
   }
