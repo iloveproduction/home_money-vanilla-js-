@@ -1,10 +1,10 @@
-import './styles/desktop.sass'
-import './styles/phone.sass'
+import './styles/desktop.sass';
+import './styles/phone.sass';
 
-import Transaction from './modules/Transaction'
-import {appInit} from './modules/appInit'
-import {toggleView} from './modules/toggleView'
-import {removeItem} from './modules/removeItem'
+import Transaction from './modules/Transaction';
+import { appInit } from './modules/appInit';
+import { toggleView } from './modules/toggleView';
+import { removeItem } from './modules/removeItem';
 
 const dashboard = document.querySelector('.dashboard');
 const transBoard = document.querySelector('.trans-board');
@@ -18,33 +18,36 @@ const closeBtn = document.querySelector('.modal-header__close');
 
 appInit();
 
-transBoardLogo.addEventListener('click', ()=>{
-    if(transBoard.classList.contains('hidden')){
-        toggleView(dashboard,transBoard);
-        appInit();
-        removeItem();
-    }
+transBoardLogo.addEventListener('click', () => {
+  if (transBoard.classList.contains('hidden')) {
+    toggleView(dashboard, transBoard);
+    appInit();
+    removeItem();
+  }
 });
-dashboardLogo.addEventListener('click', ()=>{
-    if(dashboard.classList.contains('hidden')){
-        toggleView(transBoard,dashboard);
-        appInit();
-    }
-});
-
-plusBtn.addEventListener('click', ()=>{toggleView(modal)});
-closeBtn.addEventListener('click', ()=>{toggleView(modal)});
-btnAdd.addEventListener('click', ()=>{
-    const newItem = document.querySelector('.fields__new-item');
-    const newPrice = document.querySelector('.fields__price');
-
-    let transaction = new Transaction(newItem.value,newPrice.value);
-    transaction.add();
-    newItem.value=newPrice.value='';
-    setTimeout(function(){
-        appInit();
-    },1000);
+dashboardLogo.addEventListener('click', () => {
+  if (dashboard.classList.contains('hidden')) {
+    toggleView(transBoard, dashboard);
+    appInit();
+  }
 });
 
+plusBtn.onclick = () => {
+  toggleView(modal);
+};
 
+closeBtn.onclick = () => {
+  toggleView(modal);
+};
 
+btnAdd.onclick = () => {
+  const newItem = document.querySelector('.fields__new-item');
+  const newPrice = document.querySelector('.fields__price');
+
+  let transaction = new Transaction(newItem.value, newPrice.value);
+  transaction.add();
+  newItem.value = newPrice.value = '';
+  setTimeout(function () {
+    appInit();
+  }, 1000);
+};

@@ -1,5 +1,5 @@
-export function clearList (...place){
-    place.map((elem)=>{
-        elem.innerHTML ='';
-    })
+export function clearList(...place) {
+  place.map((elem) => {
+    elem.innerHTML = "";
+  });
 }
