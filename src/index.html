@@ -1,106 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HOMMY</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
-      rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="main">
-        <div class="main__leftTable">
-            <div class="nav">
-                <div class="nav__logo">
-                    HOMMY
-                </div>
-                <div class="nav__menu">
-                    <div class="menu">
-                        <div class="menu__item">
-                            <img class="dashboard-logo" src="https://img.icons8.com/fluent/30/000000/home.png"/>
-                        </div>
-                        <div class="menu__item">
-                            <img class="transactions-logo" src="https://img.icons8.com/fluent/30/000000/purchase-order.png"/>
-                        </div>
-                    </div>
-                </div>
+      <div class="main__leftTable">
+        <div class="nav">
+          <div class="nav__logo">HOMMY</div>
+          <div class="nav__menu">
+            <div class="menu">
+              <div class="menu__item">
+                <img
+                  class="dashboard-logo"
+                  src="https://img.icons8.com/fluent/30/000000/home.png"
+                />
+              </div>
+              <div class="menu__item">
+                <img
+                  class="transactions-logo"
+                  src="https://img.icons8.com/fluent/30/000000/purchase-order.png"
+                />
+              </div>
             </div>
+          </div>
         </div>
-        <div class="main__rightTable">
-            <div class="dashboard">
-                <div class="board-title">
-                    <div class="board-title__avatar">
-                        <img src="https://img.icons8.com/fluent/35/000000/home.png"/>
-                    </div>
-                    <div class="board-title__name">Dashboard</div>
-                </div>
-                <div class="dashboard__balance">
-                    <div class="balance">
-                        <div class="balance__header">Total balance</div>
-                        <div class="balance__money">
-                        ****
-                        </div>
-                    </div>
-                    <div class="button">
-                        <img src="https://img.icons8.com/fluent/30/000000/add.png"/>
-                    </div>
-                </div>
-                <div class="transactions">
-                    <div class="transactions__header">
-                        Last 5 transactions
-                    </div>
-                    <ul class="transactions__list">
-                    </ul>
-                </div>
-                <div class="analitics">
-                    <div class="analitics__header">
-                        last year's analitics
-                    </div>
-                    <div class="analitics__body">
-                        <canvas id="chart"></canvas>
-                    </div>
-                </div>
+      </div>
+      <div class="main__rightTable">
+        <div class="dashboard">
+          <div class="board-title">
+            <div class="board-title__avatar">
+              <img src="https://img.icons8.com/fluent/35/000000/home.png" />
             </div>
-            <div class="trans-board hidden">
-                <div class="board-title">
-                    <div class="board-title__avatar">
-                        <img src="https://img.icons8.com/fluent/35/000000/purchase-order.png"/>
-                    </div>
-                    <div class="board-title__name">All Transactions</div>
-                </div>
-                <div class="trans-board__body">
-                    
-                </div>
+            <div class="board-title__name">Dashboard</div>
+          </div>
+          <div class="dashboard__balance">
+            <div class="balance">
+              <div class="balance__header">Total balance</div>
+              <div class="balance__money">****</div>
             </div>
-            <div class="cards hidden">
-
+            <div class="button">
+              <img src="https://img.icons8.com/fluent/30/000000/add.png" />
             </div>
+          </div>
+          <div class="transactions">
+            <div class="transactions__header">Last 5 transactions</div>
+            <ul class="transactions__list"></ul>
+          </div>
+          <div class="analitics">
+            <div class="analitics__header">last year's analitics</div>
+            <div class="analitics__body">
+              <canvas id="chart"></canvas>
+            </div>
+          </div>
         </div>
+        <div class="trans-board hidden">
+          <div class="board-title">
+            <div class="board-title__avatar">
+              <img
+                src="https://img.icons8.com/fluent/35/000000/purchase-order.png"
+              />
+            </div>
+            <div class="board-title__name">All Transactions</div>
+          </div>
+          <div class="trans-board__body"></div>
+        </div>
+        <div class="cards hidden"></div>
+      </div>
     </div>
 
     <div class="modal hidden">
-        <div class="form">
-            <div class="form__header">
-                <div class="modal-header">
-                    <span>Add transaction</span>
-                    <img class="modal-header__close" src="https://img.icons8.com/fluent/25/000000/cancel.png"/>
-                </div>
-            </div>
-            <div class="form__fields"> 
-                <div class="fields">
-                    <label for="new-item" class="fields__label">Service:</label>
-                    <input name="new-item" type="text" class="fields__new-item">
-                    <label for="price" class="fields__label">Price:</label>
-                    <input name="price" type="number" class="fields__price">
-                    <button class="fields__add">
-                        ADD
-                    </button>
-                </div>
-            </div>
+      <div class="form">
+        <div class="form__header">
+          <div class="modal-header">
+            <span>Add transaction</span>
+            <img
+              class="modal-header__close"
+              src="https://img.icons8.com/fluent/25/000000/cancel.png"
+            />
+          </div>
         </div>
+        <div class="form__fields">
+          <div class="fields">
+            <label for="new-item" class="fields__label">Service:</label>
+            <input name="new-item" type="text" class="fields__new-item" />
+            <label for="price" class="fields__label">Price:</label>
+            <input name="price" type="number" class="fields__price" />
+            <button class="fields__add">ADD</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="bundle.js"></script>
-</body>
+  </body>
 </html>
